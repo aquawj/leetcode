@@ -1,15 +1,17 @@
 package easy;
 
+/*14.Write a function to find the longest common prefix string amongst an array of strings.*/
+
 public class Solution14 {
-	//×Ô¼ºµÄ·½·¨¿ÉĞĞ£¬µ«ÓĞµã¸´ÔÓ¡£ÆäËûÈËÓĞ¼ò»¯·½·¨¡£
+	//è‡ªå·±çš„æ–¹æ³•å¯è¡Œï¼Œä½†æœ‰ç‚¹å¤æ‚ã€‚å…¶ä»–äººæœ‰ç®€åŒ–æ–¹æ³•ã€‚
 	 public String longestCommonPrefix(String[] strs) {
-	        if(strs.length==0 || strs[0]=="") return ""; // ¿ªÊ¼Ã»Ïëµ½µÄ±ß½çÌõ¼ş
-	        if(strs.length==1) return strs[0]; //¿ªÊ¼Ã»Ïëµ½µÄ±ß½çÌõ¼ş
+	        if(strs.length==0 || strs[0]=="") return ""; // å¼€å§‹æ²¡æƒ³åˆ°çš„è¾¹ç•Œæ¡ä»¶
+	        if(strs.length==1) return strs[0]; //å¼€å§‹æ²¡æƒ³åˆ°çš„è¾¹ç•Œæ¡ä»¶
 			 	String longPre="";
 			 	int key=Integer.MAX_VALUE;
-		        for(int i=1;i<strs.length;i++){ //£¿ÏÂÃæÒ»ĞĞ´úÂëÌáÊ¾´íÎó£ºjava.lang.StringIndexOutOfBoundsException: String index out of range: 0
-		        	//×¢ÒâÒª½«µ±Ç°ÔªËØÎª¿ÕµÄÌõ¼şĞ´ÔÚÇ°Ãæ¡£²»È»»áÓĞÉÏÃæËµµÄÌáÊ¾´íÎó£¬ÒòÎª´æÔÚÎª¿ÕµÄ¿ÉÄÜĞÔ£¬²»´æÔÚcharAt(0)¡££¨Ä¿Ç°IDEÍ¨¹ı£¬µ«leetcodeÈÔÈ»Ëµ´æÔÚÉÏÃæÎÊÌâ£¬ÓÃÀıÎª{"",""}²»½â£©
-		        	if((strs[i]=="")||(strs[i].charAt(0)!=strs[i-1].charAt(0))) //µ±Ç°ÔªËØÎª¿Õ£¬ÊÇ¿ªÊ¼Ã»Ïëµ½µÄ±ß½çÌõ¼ş
+		        for(int i=1;i<strs.length;i++){ //ï¼Ÿä¸‹é¢ä¸€è¡Œä»£ç æç¤ºé”™è¯¯ï¼šjava.lang.StringIndexOutOfBoundsException: String index out of range: 0
+		        	//æ³¨æ„è¦å°†å½“å‰å…ƒç´ ä¸ºç©ºçš„æ¡ä»¶å†™åœ¨å‰é¢ã€‚ä¸ç„¶ä¼šæœ‰ä¸Šé¢è¯´çš„æç¤ºé”™è¯¯ï¼Œå› ä¸ºå­˜åœ¨ä¸ºç©ºçš„å¯èƒ½æ€§ï¼Œä¸å­˜åœ¨charAt(0)ã€‚ï¼ˆç›®å‰IDEé€šè¿‡ï¼Œä½†leetcodeä»ç„¶è¯´å­˜åœ¨ä¸Šé¢é—®é¢˜ï¼Œç”¨ä¾‹ä¸º{"",""}ä¸è§£ï¼‰
+		        	if((strs[i]=="")||(strs[i].charAt(0)!=strs[i-1].charAt(0))) //å½“å‰å…ƒç´ ä¸ºç©ºï¼Œæ˜¯å¼€å§‹æ²¡æƒ³åˆ°çš„è¾¹ç•Œæ¡ä»¶
 		        		return "";
 		        	int minl=Math.min(strs[i].length(),strs[i-1].length());
 		        	int count=0;
@@ -25,7 +27,7 @@ public class Solution14 {
 		        return longPre;
 		    }
 	 
-	 //±ğÈËµÄ×îÓÅ½â¡£²»Àí½â¡£
+	 //ä¸‹é¢ä¸ºåˆ«äººçš„æœ€ä¼˜è§£ã€‚ä¸ç†è§£ã€‚
 	 public String longestCommonPrefix2(String[] strs) {
 		    if (strs.length == 0) return "";
 		    String pre = strs[0];
@@ -46,7 +48,7 @@ public class Solution14 {
 		 String[] strs3={"ab","","","",""};
 		 System.out.println("strs3:"+sl.longestCommonPrefix(strs3));
 		 System.out.println("strs3:"+sl.longestCommonPrefix2(strs3));
-		 String[] strs4={"",""};//²»ÖªµÀÎªÊ²Ã´leetcode»áÔÚ´ËÓÃÀıÉÏÌáÊ¾12ĞĞ»á³öÏÖ±ß½çÒç³ö0´íÎó¡£
+		 String[] strs4={"",""};//ä¸çŸ¥é“ä¸ºä»€ä¹ˆleetcodeä¼šåœ¨æ­¤ç”¨ä¾‹ä¸Šæç¤º14è¡Œä¼šå‡ºç°è¾¹ç•Œæº¢å‡º0é”™è¯¯ã€‚
 		 System.out.println("strs4:"+sl.longestCommonPrefix(strs4));
 		 System.out.println("strs4:"+sl.longestCommonPrefix2(strs4));
 	 }
